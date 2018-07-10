@@ -19,36 +19,58 @@ public class MergeSort {
             int q = (p + r) / 2;
             mergeSort(array, p, q);
             mergeSort(array, q + 1, r);
-            merge(array, p, q, r);
+            merge_(array, p, q, r);
         }
     }
 
-    private static void merge(int[] array, int p, int q, int r) {
-        int leftLength = q + 2;
-        int rightLength = r - q + 1;
-        int left[] = new int[leftLength];
-        int right[] = new int[rightLength];
-        int index = 0, i, j;
-        for (i = 0; i < leftLength - 1; i++) {
-            left[i] = array[index++];
+    private static void merge_(int arr[], int l, int m, int r) {
+        // Find sizes of two subarrays to be merged
+        int n1 = m - l + 1;
+        int n2 = r - m;
+
+        /* Create temp arrays */
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+
+        /*Copy data to temp arrays*/
+        for (int i = 0; i < n1; ++i)
+            L[i] = arr[l + i];
+        for (int j = 0; j < n2; ++j)
+            R[j] = arr[m + 1 + j];
+
+        /* Merge the temp arrays */
+        // Initial indexes of first and second subarrays
+        int i = 0, j = 0;
+
+        // Initial index of merged subarry array
+        int k = l;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            } else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
         }
-        left[i] = Integer.MAX_VALUE;
-        for (i = 0; i < rightLength - 1; i++) {
-            right[i] = array[index++];
+        /* Copy remaining elements of L[] if any */
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
         }
-        right[i] = Integer.MAX_VALUE;
-        i = j = 0;
-        for (int k = p; k <= r; k++) {
-            if (left[i] <= right[j])
-                array[k] = left[i++];
-            else
-                array[k] = right[j++];
+        /* Copy remaining elements of R[] if any */
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
         }
     }
 
     private static void showArray(int[] array, int length) {
         for (int i = 0; i < length; i++)
             System.out.print(array[i] + " ");
-        System.out.println("");
+        System.out.println();
     }
 }
