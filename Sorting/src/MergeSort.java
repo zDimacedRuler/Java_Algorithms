@@ -24,7 +24,7 @@ public class MergeSort {
     }
 
     private static void merge_(int arr[], int l, int m, int r) {
-        // Find sizes of two subarrays to be merged
+        // Find sizes of two subArrays to be merged
         int n1 = m - l + 1;
         int n2 = r - m;
 
@@ -42,7 +42,7 @@ public class MergeSort {
         // Initial indexes of first and second subarrays
         int i = 0, j = 0;
 
-        // Initial index of merged subarry array
+        // Initial index of merged subArray array
         int k = l;
         while (i < n1 && j < n2) {
             if (L[i] <= R[j]) {
