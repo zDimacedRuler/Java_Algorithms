@@ -23,9 +23,9 @@ public class MaxSumSubArray {
     }
 
     /*
-     * Simple observation: if the index is at i, then (currentSum + array[i]) will be the cuurentSum or
+     * Simple observation: if the index is at i, then (currentSum + array[i]) will be the currentSum or
      * the current element arr[i] will only be the currentSum
-     * And when this current sum is greater than maxSu it is maxSum
+     * And when this current sum is greater than maxSum it is maxSum
      * */
     private static void kadane(int[] arr, int length) {
         int maxSum = arr[0], currentSum = arr[0];
@@ -37,7 +37,7 @@ public class MaxSumSubArray {
 //            currentSum = Math.max(arr[i], currentSum + arr[i]);
 //            maxSum = Math.max(maxSum, currentSum);
 
-//            or-- below algo to print the index of the subArray
+//            or-- below algorithm to print the index of the subArray
 
             int temp = currentSum + arr[i];
             if (temp > arr[i]) {

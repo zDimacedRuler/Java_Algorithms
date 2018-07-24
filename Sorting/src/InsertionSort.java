@@ -13,7 +13,7 @@ public class InsertionSort {
         System.out.println("The sorted Array is:");
         for (int i = 0; i < length; i++)
             System.out.print(array[i] + " ");
-        System.out.println("");
+        System.out.println();
         scanner.close();
     }
 
