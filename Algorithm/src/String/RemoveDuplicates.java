@@ -11,15 +11,9 @@ public class RemoveDuplicates {
     }
 
     private static String removeDuplicates(String str) {
-        Set<Character> set = new LinkedHashSet<>();
-        for (int i = 0; i < str.length(); i++) {
-            set.add(str.charAt(i));
-        }
-        StringBuilder strBuilder = new StringBuilder();
-        for (char ch : set) {
-            strBuilder.append(ch);
-        }
-        str = strBuilder.toString();
+        List<String> list = Arrays.asList(str.split(""));
+        Set<String> set = new LinkedHashSet<>(list);
+        str = String.join("", set);
         return str;
     }
 }

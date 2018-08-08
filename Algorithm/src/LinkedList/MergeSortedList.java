@@ -12,6 +12,7 @@ public class MergeSortedList {
         list2.insert(2);
         list1.display();
         list2.display();
+        //TODO:Merge Sorted Lists
         list1.merge(list2.getHead());
     }
 }

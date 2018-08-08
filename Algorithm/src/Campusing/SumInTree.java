@@ -1,3 +1,5 @@
+package Campusing;
+
 import java.util.Scanner;
 
 public class SumInTree {
