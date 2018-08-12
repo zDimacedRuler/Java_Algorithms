@@ -37,6 +37,18 @@ class LinkedList {
         System.out.println();
     }
 
+    void display(Node node) {
+        Node temp = node;
+        while (temp != null) {
+            if (temp.next != null)
+                System.out.print(temp.data + "-->");
+            else
+                System.out.print(temp.data);
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+
     void findMiddle() {
         Node fastPointer = head;
         Node slowPointer = head;
@@ -97,16 +109,24 @@ class LinkedList {
     }
 
     void merge(Node secondHead) {
-        Node firstHead = head;
-        Node next;
-        while (firstHead != null && secondHead != null) {
-            if (firstHead.data < secondHead.data) {
-                next = firstHead.next;
-                firstHead.next = secondHead;
-                secondHead.next = next;
-            }
-        }
+        head = mergeHelper(head, secondHead);
+    }
 
+    private Node mergeHelper(Node head, Node secondHead) {
+        if (head == null)
+            return secondHead;
+        if (secondHead == null)
+            return head;
+
+        Node result;
+        if (head.data < secondHead.data) {
+            result = head;
+            result.next = mergeHelper(head.next, secondHead);
+        } else {
+            result = secondHead;
+            result.next = mergeHelper(head, secondHead.next);
+        }
+        return result;
     }
 
     boolean checkPalindrome() {
@@ -126,6 +146,21 @@ class LinkedList {
             temp = temp.next;
         }
         return palindrome;
+    }
+
+    void alternateSplit() {
+        if (head == null || head.next == null)
+            return;
+        Node head1 = head, head2 = head.next;
+        Node temp = head;
+        while (temp != null) {
+            Node next = temp.next;
+            if (temp.next != null)
+                temp.next = temp.next.next;
+            temp = next;
+        }
+        display(head1);
+        display(head2);
     }
 
 }
