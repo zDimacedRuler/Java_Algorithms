@@ -7,9 +7,9 @@ public class NextPalindrome {
 
 //        int num[] = {3, 4, 7, 2, 2, 6, 4, 1};
 //        int num[] = {9,9,9};
-//        int num[] = { 1,2,2,1};
+        int num[] = { 1,2,2,1};
 //        int num[] = { 1,2,5,3,2,2};
-        int num[] = {1, 9, 9, 9, 6};
+//        int num[] = {1, 9, 9, 9, 6};
         if (isAll9(num)) {
             System.out.print("1");
             for (int i = 0; i < num.length - 1; i++)
