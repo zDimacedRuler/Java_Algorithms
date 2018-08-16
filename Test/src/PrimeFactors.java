@@ -2,8 +2,8 @@ import java.util.*;
 
 public class PrimeFactors {
     public static void main(String[] args) {
-        System.out.println(primeFactors(12345));
-        primeFactorsGeeks(12345);
+        System.out.println(primeFactors(120));
+        primeFactorsGeeks(120);
     }
 
     private static Set<Integer> primeFactors(int i) {

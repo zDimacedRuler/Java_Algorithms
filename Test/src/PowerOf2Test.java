@@ -1,6 +1,6 @@
 public class PowerOf2Test {
     public static void main(String[] args) {
-        System.out.println(isPowerOfTwo(17));
+        System.out.println(isPowerOfTwo(16));
     }
 
     private static boolean isPowerOfTwo(int number) {
