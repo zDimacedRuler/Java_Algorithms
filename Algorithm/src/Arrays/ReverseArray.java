@@ -28,10 +28,10 @@ public class ReverseArray {
     }
 
     public static void reverseArrayRecursion(int arr[], int left, int right) {
-        if (right >= arr.length)
-            right = arr.length - 1;
         if (left >= right)
             return;
+        if (right >= arr.length)
+            right = arr.length - 1;
         arr[left] = arr[left] ^ arr[right];
         arr[right] = arr[left] ^ arr[right];
         arr[left] = arr[left] ^ arr[right];
