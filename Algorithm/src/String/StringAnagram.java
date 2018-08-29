@@ -15,7 +15,6 @@ public class StringAnagram {
     }
 
     private static boolean isAnagram(String str, String anaStr) {
-        boolean anagram = true;
         HashMap<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < str.length(); i++) {
             if (map.containsKey(str.charAt(i)))
@@ -30,10 +29,9 @@ public class StringAnagram {
                     map.remove(anaStr.charAt(i));
                 }
             } else {
-                anagram = false;
-                break;
+                return false;
             }
         }
-        return anagram;
+        return true;
     }
 }
