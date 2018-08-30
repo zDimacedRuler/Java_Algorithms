@@ -20,7 +20,7 @@ public class NextGreaterElement {
                         if (stack.isEmpty())
                             break;
                         popped = stack.pop();
-                    } while (stack.isEmpty() && popped < next);
+                    } while (popped < next);
                 }
                 stack.push(next);
                 if (popped > next)
